@@ -110,30 +110,13 @@ async function upgradeV1License (oldLicense: string) {
 }
 
 function _getPurchased (force = true) {
-  logger.debug('_getPurchased', force)
-  if (FLAG_DEMO || MODE === 'share-preview') {
-    return true
-  }
 
-  let token = licenseToken
-  if (typeof token === 'undefined' || force) {
-    token = getLicenseToken()
-  }
-
-  return !!(token?.isAvailable)
+  return true
 }
 
 export function getPurchased (force = true) {
-  const val = _getPurchased(force)
 
-  if (typeof lastPurchased === 'boolean' && val !== lastPurchased) {
-    lastPurchased = val
-    triggerHook('PREMIUM_STATUS_CHANGED')
-  } else {
-    lastPurchased = val
-  }
-
-  return val
+  return true
 }
 
 export function showPremium (tab?: PremiumTab) {
