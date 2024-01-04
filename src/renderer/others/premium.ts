@@ -109,7 +109,7 @@ async function upgradeV1License (oldLicense: string) {
   }
 }
 
-function _getPurchased (force = false) {
+function _getPurchased (force = true) {
   logger.debug('_getPurchased', force)
   if (FLAG_DEMO || MODE === 'share-preview') {
     return true
@@ -123,7 +123,7 @@ function _getPurchased (force = false) {
   return !!(token?.isAvailable)
 }
 
-export function getPurchased (force = false) {
+export function getPurchased (force = true) {
   const val = _getPurchased(force)
 
   if (typeof lastPurchased === 'boolean' && val !== lastPurchased) {
