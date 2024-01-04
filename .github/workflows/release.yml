@@ -60,6 +60,6 @@ jobs:
       - name: github actions
         uses: actions/upload-artifact@v3
         with:
-          name: Yank-Note*.*
-          path: out/Yank-Note*.*
+          name: Yank-Note-win-x64-3.65.0.zip
+          path: out\Yank-Note-win-x64-3.65.0.zip
           if-no-files-found: error
